@@ -16,7 +16,6 @@
     <property name="bin" location="bin" />
     <property name="test.src" location="test/src" />
     <property name="test.bin" location="test/bin" />
-    <!-- property name="test.reports" location="test/reports" /-->
 
     <path id="classpath">
         <pathelement location="bin" />
@@ -48,9 +47,17 @@
         <java classname="edu.umb.cs680.hw02.Calculator"
               classpathref="classpath"
               fork="true"/>
-        <java classname="edu.umb.cs680.hw02.CalculatorTest"
-              classpathref="classpath"
-              fork="true"/>
+    </target>
+
+    <target name="junit" depends="compile">
+        <junit printsummary="yes" haltonfailure="no">
+            <classpath refid="test.src" />
+            <classpath location="${test.bin}" />
+            <test name="calculatorTest" haltonfailure="no">
+                <formatter type="plain" />
+                <formatter type="xml" />
+            </test>
+        </junit>
     </target>
 
 
