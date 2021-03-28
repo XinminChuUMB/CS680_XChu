@@ -1,6 +1,10 @@
 package edu.umb.cs680.hw04;
 
 public class StudentFactory {
+    private StudentFactory(){
+
+    }
+
     public static Student createInStateStudent(String name, String usAddr) {
         Student student = new Student(
                 name,
